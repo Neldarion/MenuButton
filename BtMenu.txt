@@ -1,0 +1,37 @@
+
+    public void ajouter(View view){
+        if(this.radPomme.isChecked()){
+            mem1 ++;
+            this.pomme.setText(String.valueOf(mem1));
+        }
+        if(this.radPoire.isChecked()){
+            mem2 ++;
+            this.poire.setText(String.valueOf(mem2));
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        menu.add(0,3,0,"nbPommes");
+        menu.add(0,2,0,"nbPoires");
+        menu.add(0,1,0,"Quitter");
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        TextView pomme = findViewById(R.id.pomme);
+        TextView poire = findViewById(R.id.poire);
+
+        switch (item.getItemId()) {
+            case 1:
+                finish();break;
+            case 2:
+                Toast.makeText(getApplicationContext(), poire.getText().toString(), Toast.LENGTH_SHORT).show();break;
+            case 3:
+                Toast.makeText(getApplicationContext(), pomme.getText().toString(), Toast.LENGTH_SHORT).show();break;
+        }
+        return super.
+                onOptionsItemSelected(item);
+    }
+}
